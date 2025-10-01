@@ -14,7 +14,23 @@ function App() {
 
 
 
+const handleInputPhoto = (ev) =>{
 
+  const photoFile = ev.target.files[0];
+  if (photoFile){
+    const profilePhoto = URL.createObjectURL(photoFile);
+    setPhoto(profilePhoto)
+  }
+};
+
+const handleInputImage = (ev) =>{
+
+  const imageBtn = ev.target.files[0];
+  if (imageBtn){
+    const picBtn = URL.createObjectURL(picBtn);
+    setPhoto(picBtn)
+  }
+};
 
 
 
@@ -30,14 +46,14 @@ function App() {
         <div>
           <label>
             Add profile photo
-            <input type="file" />
+           <input type="file" className="hidden_input"   onChange={handleInputPhoto} />
           </label>
         </div>
 
         <div>
           <label htmlFor="">
             Add button image
-            <input type="file" />
+            <input type="file"   className="hidden_input"  onChange={handleInputImage} />
           </label>
         </div>
         <div>
@@ -49,11 +65,11 @@ function App() {
 
       <section>
         <div>
-          <img/> 
+          <img />
         </div>
         <div>
           <a href="">
-            <img   />
+            <img />
           </a>
         </div>
       </section>
