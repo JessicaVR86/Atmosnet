@@ -1,3 +1,7 @@
 @use './core/reset';
 
-/* Aquí van los estilos */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
