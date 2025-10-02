@@ -1,5 +1,7 @@
 import "../styles/App.scss";
 import { useState } from "react";
+import Form from "./Form";
+import Preview from "./Preview";
 
 function App() {
   const [photo, setPhoto] = useState("");
@@ -46,72 +48,27 @@ function App() {
 
   return (
     <>
-      <header >
+      <header>
         <h1>Atmosnet</h1>
         <h3>One moment. One link. Let's stay close.</h3>
       </header>
 
       <main>
-        <div>
-          <label>
-            Add profile photo
-            <input
-              type="file"
-              className="hidden_input"
-              onChange={handleInputPhoto}
-            />
-          </label>
-        </div>
-
-        <div>
-          <label >
-            Add button image
-            <input
-              type="file"
-              className="hidden_input"
-              onChange={handleInputImage}
-            />
-          </label>
-        </div>
-        <div>
-          <input
-            type="text"
-            placeholder="Name your button"
-            onChange={handleBtnName}
-          />
-          <input
-            type="text"
-            placeholder="Add your link"
-            onChange={handleLinkName}
-          />
-          <button className="create" onClick={handleAddLinks}>
-            {" "}
-            Create your link
-          </button>
-        </div>
+        <Form
+          handleInputPhoto={handleInputPhoto}
+          handleInputImage={handleInputImage}
+          handleBtnName={handleBtnName}
+          handleLinkName={handleLinkName}
+          handleAddLinks={handleAddLinks}
+        />
       </main>
 
       <section>
-        <div>
-          {photo && (
-            <img src={photo} alt="foto de perfil" className="myPhoto" />
-          )}
-        </div>
-        <div className="linkList">
-          {listLinks.map((link, index) => (
-            <a
-              key={index}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="link_btn"
-            >
-              {link.picture && <img src={link.picture} alt={link.btn} className="btn_picture"/>}
+<Preview  
+photo={photo}
+listLinks={listLinks}
 
-             <p className="link_btn">{link.btn}</p> 
-            </a>
-          ))}
-        </div>
+/>
       </section>
     </>
   );
