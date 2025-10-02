@@ -64,11 +64,7 @@ function App() {
       </main>
 
       <section>
-<Preview  
-photo={photo}
-listLinks={listLinks}
-
-/>
+        <Preview photo={photo} listLinks={listLinks} />
       </section>
     </>
   );
